@@ -42,6 +42,7 @@
                 Console.WriteLine("2.Retrive top 3 records");
                 Console.WriteLine("3.retrive top reating reacords");
                 Console.WriteLine("4.Count of Product Id");
+                Console.WriteLine("5.Retrivr Only product Id And Review");
                 int choice = Convert.ToInt32(Console.ReadLine());
                 switch (choice)
                 {
@@ -60,6 +61,9 @@
                         break;
                     case 4:
                         manegment.CountProductID(productReviews);
+                        break;
+                    case 5:
+                        manegment.ProductIdAndReview(productReviews);
                         break;
                     default:
                         flag = false;

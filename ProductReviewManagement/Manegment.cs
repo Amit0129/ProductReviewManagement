@@ -32,5 +32,14 @@ namespace ProductReviewManagement
                 Console.WriteLine($"Product Id = {item.ProductId} Count = {item.Count}");
             }
         }
+        public void ProductIdAndReview(List<ProductReview> productReviews)
+        {
+
+            var countRecord = productReviews.Select(x => new { ProductId = x.ProductId, Review = x.Review });
+            foreach (var item in countRecord)
+            {
+                Console.WriteLine($"Product Id = {item.ProductId} Review = {item.Review}");
+            }
+        }
     }
 }
