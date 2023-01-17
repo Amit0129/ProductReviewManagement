@@ -48,6 +48,7 @@
                 Console.WriteLine("7.Retrive Product Id and Review");
                 Console.WriteLine("8.Create dataTable");
                 Console.WriteLine("9.Retrive IsLike Data Freom DataTable");
+                Console.WriteLine("10.Retrive Avrage Rating with ProductId");
                 int choice = Convert.ToInt32(Console.ReadLine());
                 switch (choice)
                 {
@@ -80,7 +81,12 @@
                         dataBaseOperation.CreateDataTable();
                         break;
                     case 9:
+                        dataBaseOperation.CreateDataTable();
                         dataBaseOperation.RetrieveIsLikeValueWithTrue();
+                        break;
+                    case 10:
+                        dataBaseOperation.CreateDataTable();
+                        dataBaseOperation.AvgRatingOfProductId();
                         break;
                     default:
                         flag = false;

@@ -58,5 +58,15 @@ namespace ProductReviewManagement
                 Console.WriteLine("--------------");
             }
         }
+        public void AvgRatingOfProductId()
+        {
+            var records = from row in dataTable.AsEnumerable() group row by row.Field<int>("ProductID") into grp select new { ProductID = grp.Key, AverageRating = grp.Average(x => x.Field<double>("Rating")) };
+            foreach (var item in records)
+            {
+                Console.WriteLine("ProductID: " + item.ProductID);
+                Console.WriteLine("Average Rating: " + item.AverageRating);
+                Console.WriteLine("--------------");
+            }
+        }
     }
 }
