@@ -5,7 +5,7 @@
         static void Main(string[] args)
         {
             Console.WriteLine("Wellcome to Product Review Management\n");
-
+            bool flag = true;
             List<ProductReview> productList = new List<ProductReview>()
             {
                 new ProductReview() {ProductId =  1,UserId = 1, Rating = 4.5, Review = "VeryGood", IsLike = true},
@@ -34,11 +34,31 @@
                 new ProductReview() {ProductId = 24,UserId = 5, Rating = 4, Review = "Good", IsLike = true},
                 new ProductReview() {ProductId = 25,UserId = 2, Rating = 4.5, Review = "VeryGood", IsLike = true},
             };
-            Console.WriteLine("-------Product Review-------\n");
-            foreach (var item in productList)
+            Manegment manegment = new Manegment();
+            while (flag)
             {
-                Console.WriteLine($"Product ID : {item.ProductId}, " + $"User Id : {item.UserId}, " + $"Rating : {item.Rating}, " + $"Review : {item.Review}, " + $"IsLike : {item.IsLike}");
+                Console.WriteLine("Choose a Option");
+                Console.WriteLine("1.View All Row");
+                Console.WriteLine("2.Retrive top 3 records");
+                int choice = Convert.ToInt32(Console.ReadLine());
+                switch (choice)
+                {
+                    case 1:
+                        Console.WriteLine("-------Product Review-------\n");
+                        foreach (var item in productList)
+                        {
+                            Console.WriteLine($"Product ID : {item.ProductId}, " + $"User Id : {item.UserId}, " + $"Rating : {item.Rating}, " + $"Review : {item.Review}, " + $"IsLike : {item.IsLike}");
+                        }
+                        break;
+                    case 2:
+                        manegment.TopRecord(productList);
+                        break;
+                    default:
+                        break;
+                }
             }
+            
+            
         }
     }
 }
