@@ -30,9 +30,9 @@
                 new ProductReview() {ProductId = 20,UserId = 6, Rating = 4.5, Review = "VeryGood", IsLike = true},
                 new ProductReview() {ProductId = 21,UserId = 4, Rating = 4, Review = "Good", IsLike = true},
                 new ProductReview() {ProductId = 22,UserId = 3, Rating = 3, Review = "Average", IsLike = true},
-                new ProductReview() {ProductId = 23,UserId = 2, Rating = 2, Review = "bad", IsLike = false},
-                new ProductReview() {ProductId = 24,UserId = 5, Rating = 4, Review = "Good", IsLike = true},
-                new ProductReview() {ProductId = 25,UserId = 2, Rating = 4.5, Review = "VeryGood", IsLike = true},
+                new ProductReview() {ProductId = 22,UserId = 2, Rating = 2, Review = "bad", IsLike = false},
+                new ProductReview() {ProductId = 22,UserId = 5, Rating = 4, Review = "Good", IsLike = true},
+                new ProductReview() {ProductId = 23,UserId = 2, Rating = 4.5, Review = "VeryGood", IsLike = true},
             };
             Manegment manegment = new Manegment();
             while (flag)
@@ -41,6 +41,7 @@
                 Console.WriteLine("1.View All Row");
                 Console.WriteLine("2.Retrive top 3 records");
                 Console.WriteLine("3.retrive top reating reacords");
+                Console.WriteLine("4.Count of Product Id");
                 int choice = Convert.ToInt32(Console.ReadLine());
                 switch (choice)
                 {
@@ -56,6 +57,9 @@
                         break;
                     case 3:
                         manegment.CollectRecords(productReviews);
+                        break;
+                    case 4:
+                        manegment.CountProductID(productReviews);
                         break;
                     default:
                         flag = false;
