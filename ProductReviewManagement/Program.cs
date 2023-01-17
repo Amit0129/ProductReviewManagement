@@ -6,7 +6,7 @@
         {
             Console.WriteLine("Wellcome to Product Review Management\n");
             bool flag = true;
-            List<ProductReview> productList = new List<ProductReview>()
+            List<ProductReview> productReviews = new List<ProductReview>()
             {
                 new ProductReview() {ProductId =  1,UserId = 1, Rating = 4.5, Review = "VeryGood", IsLike = true},
                 new ProductReview() {ProductId =  2,UserId = 1, Rating = 4, Review = "Good", IsLike = true},
@@ -40,20 +40,25 @@
                 Console.WriteLine("Choose a Option");
                 Console.WriteLine("1.View All Row");
                 Console.WriteLine("2.Retrive top 3 records");
+                Console.WriteLine("3.retrive top reating reacords");
                 int choice = Convert.ToInt32(Console.ReadLine());
                 switch (choice)
                 {
                     case 1:
                         Console.WriteLine("-------Product Review-------\n");
-                        foreach (var item in productList)
+                        foreach (var item in productReviews)
                         {
                             Console.WriteLine($"Product ID : {item.ProductId}, " + $"User Id : {item.UserId}, " + $"Rating : {item.Rating}, " + $"Review : {item.Review}, " + $"IsLike : {item.IsLike}");
                         }
                         break;
                     case 2:
-                        manegment.TopRecord(productList);
+                        manegment.TopRecord(productReviews);
+                        break;
+                    case 3:
+                        manegment.CollectRecords(productReviews);
                         break;
                     default:
+                        flag = false;
                         break;
                 }
             }
