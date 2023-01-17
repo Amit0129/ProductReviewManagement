@@ -9,7 +9,7 @@
             List<ProductReview> productReviews = new List<ProductReview>()
             {
                 new ProductReview() {ProductId =  1,UserId = 1, Rating = 4.5, Review = "VeryGood", IsLike = true},
-                new ProductReview() {ProductId =  2,UserId = 1, Rating = 4, Review = "Good", IsLike = true},
+                new ProductReview() {ProductId =  2,UserId = 1, Rating = 4, Review = "Nice", IsLike = true},
                 new ProductReview() {ProductId =  3,UserId = 3, Rating = 3.5, Review = "Good", IsLike = true},
                 new ProductReview() {ProductId =  4,UserId = 6, Rating = 2, Review = "bad", IsLike = false},
                 new ProductReview() {ProductId =  5,UserId = 2, Rating = 4, Review = "Good", IsLike = true},
@@ -20,7 +20,7 @@
                 new ProductReview() {ProductId = 10,UserId = 5, Rating = 2, Review = "bad", IsLike = false},
                 new ProductReview() {ProductId = 11,UserId = 5, Rating = 4, Review = "Good", IsLike = true},
                 new ProductReview() {ProductId = 12,UserId = 1, Rating = 3, Review = "Average", IsLike = true},
-                new ProductReview() {ProductId = 13,UserId = 2, Rating = 4, Review = "Good", IsLike = true},
+                new ProductReview() {ProductId = 13,UserId = 2, Rating = 4, Review = "Nice", IsLike = true},
                 new ProductReview() {ProductId = 14,UserId = 4, Rating = 2, Review = "bad", IsLike = false},
                 new ProductReview() {ProductId = 15,UserId = 1, Rating = 4, Review = "Good", IsLike = true},
                 new ProductReview() {ProductId = 16,UserId = 1, Rating = 4, Review = "Good", IsLike = true},
@@ -31,7 +31,7 @@
                 new ProductReview() {ProductId = 21,UserId = 4, Rating = 4, Review = "Good", IsLike = true},
                 new ProductReview() {ProductId = 22,UserId = 3, Rating = 3, Review = "Average", IsLike = true},
                 new ProductReview() {ProductId = 22,UserId = 2, Rating = 2, Review = "bad", IsLike = false},
-                new ProductReview() {ProductId = 22,UserId = 5, Rating = 4, Review = "Good", IsLike = true},
+                new ProductReview() {ProductId = 22,UserId = 5, Rating = 4, Review = "Nice", IsLike = true},
                 new ProductReview() {ProductId = 23,UserId = 2, Rating = 4.5, Review = "VeryGood", IsLike = true},
             };
             Manegment manegment = new Manegment();
@@ -49,6 +49,7 @@
                 Console.WriteLine("8.Create dataTable");
                 Console.WriteLine("9.Retrive IsLike Data Freom DataTable");
                 Console.WriteLine("10.Retrive Avrage Rating with ProductId");
+                Console.WriteLine("11.Retrive Record where review contain nice");
                 int choice = Convert.ToInt32(Console.ReadLine());
                 switch (choice)
                 {
@@ -87,6 +88,9 @@
                     case 10:
                         dataBaseOperation.CreateDataTable();
                         dataBaseOperation.AvgRatingOfProductId();
+                        break;
+                    case 11:
+                        manegment.RetrieveReviewMessage(productReviews);
                         break;
                     default:
                         flag = false;

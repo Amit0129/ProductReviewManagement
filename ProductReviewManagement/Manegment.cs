@@ -58,5 +58,14 @@ namespace ProductReviewManagement
                 Console.WriteLine($"Product Id = {item.ProductId} Review = {item.Review}");
             }
         }
+        public void RetrieveReviewMessage(List<ProductReview> productlist)
+        {
+            var records = productlist.Where(x => x.Review.Contains("Nice")).ToList();
+            Console.WriteLine("\n-------Review Message-------");
+            foreach (var item in records)
+            {
+                Console.WriteLine($"Product ID : {item.ProductId}, " + $"User Id : {item.UserId}, " + $"Rating : {item.Rating}, " + $"Review : {item.Review}, " + $"IsLike : {item.IsLike}");
+            }
+        }
     }
 }
