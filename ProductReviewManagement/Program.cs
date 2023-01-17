@@ -50,6 +50,7 @@
                 Console.WriteLine("9.Retrive IsLike Data Freom DataTable");
                 Console.WriteLine("10.Retrive Avrage Rating with ProductId");
                 Console.WriteLine("11.Retrive Record where review contain nice");
+                Console.WriteLine("12.Retrive record which user id is 10 in Datatable");
                 int choice = Convert.ToInt32(Console.ReadLine());
                 switch (choice)
                 {
@@ -91,6 +92,10 @@
                         break;
                     case 11:
                         manegment.RetrieveReviewMessage(productReviews);
+                        break;
+                    case 12:
+                        dataBaseOperation.CreateDataTable();
+                        dataBaseOperation.OrderByRating();
                         break;
                     default:
                         flag = false;
