@@ -35,6 +35,7 @@
                 new ProductReview() {ProductId = 23,UserId = 2, Rating = 4.5, Review = "VeryGood", IsLike = true},
             };
             Manegment manegment = new Manegment();
+            DataBaseOperation dataBaseOperation = new DataBaseOperation();
             while (flag)
             {
                 Console.WriteLine("Choose a Option");
@@ -45,6 +46,8 @@
                 Console.WriteLine("5.Retrivr Only product Id And Review");
                 Console.WriteLine("6.Skip Top Five Records");
                 Console.WriteLine("7.Retrive Product Id and Review");
+                Console.WriteLine("8.Create dataTable");
+                Console.WriteLine("9.Retrive IsLike Data Freom DataTable");
                 int choice = Convert.ToInt32(Console.ReadLine());
                 switch (choice)
                 {
@@ -72,6 +75,12 @@
                         break;
                     case 7:
                         manegment.ProductIdReview(productReviews);
+                        break;
+                    case 8:
+                        dataBaseOperation.CreateDataTable();
+                        break;
+                    case 9:
+                        dataBaseOperation.RetrieveIsLikeValueWithTrue();
                         break;
                     default:
                         flag = false;

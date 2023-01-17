@@ -9,9 +9,10 @@ namespace ProductReviewManagement
 {
     internal class DataBaseOperation
     {
+        DataTable dataTable;
         public void CreateDataTable()
         {
-            DataTable dataTable = new DataTable();
+            dataTable = new DataTable();
             dataTable.Columns.Add("ProductID", typeof(int));
             dataTable.Columns.Add("UserID", typeof(int));
             dataTable.Columns.Add("Rating", typeof(double));
@@ -43,6 +44,19 @@ namespace ProductReviewManagement
             dataTable.Rows.Add(6, 2, 4.5, "VeryGood", true);
             dataTable.Rows.Add(9, 5, 3, "Nice", true);
             Console.WriteLine("\nData Table is Created");
+        }
+        public void RetrieveIsLikeValueWithTrue()
+        {
+            var records = from row in dataTable.AsEnumerable() where row.Field<bool>("IsLike") == true select row;
+            foreach (DataRow row in records)
+            {
+                Console.WriteLine("ProductID: " + row["ProductID"]);
+                Console.WriteLine("UserID: " + row["UserID"]);
+                Console.WriteLine("Rating: " + row["Rating"]);
+                Console.WriteLine("Review: " + row["Review"]);
+                Console.WriteLine("IsLike: " + row["IsLike"]);
+                Console.WriteLine("--------------");
+            }
         }
     }
 }
